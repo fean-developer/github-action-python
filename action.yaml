@@ -1,0 +1,31 @@
+name: 'YAML Variables Extractor'
+description: 'Extracts variables from a YAML file and sets them as environment variables with a customizable prefix'
+author: 'Francisco Nascimento'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install PyYAML
+      run: pip install pyyaml
+
+    - name: Run YAML extractor script
+      run: python action.py ${{ inputs.yaml_file }} ${{ inputs.prefix }}
+      shell: bash
+
+inputs:
+  yaml_file:
+    description: 'The path to the YAML file (.yaml or .yml)'
+    required: true
+  prefix:
+    description: 'Prefix for the environment variables (default: YAML_)'
+    required: false
+    default: 'YAML_'
+
+branding:
+  icon: 'file-plus'
+  color: 'green'
