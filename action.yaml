@@ -1,13 +1,10 @@
 name: 'YAML Variables Extractor'
-description: 'Extracts variables from a YAML file and sets them as environment variables with a customizable prefix'
+description: 'Extracts variables from a YAML file and sets them as environment variables with a prefix'
 author: 'Francisco Nascimento'
 
 runs:
-  using: 'composite'
-  steps:
-    - name: Run YAML extractor script
-      run: python3 scripts/action.py ${{ inputs.yaml_file }} ${{ inputs.prefix }}
-      shell: bash
+  using: 'docker'
+  image: 'Dockerfile'
 
 inputs:
   yaml_file:
