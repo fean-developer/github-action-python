@@ -28,6 +28,10 @@ def extract_variables(yaml_file, prefix='YAML_'):
         print(f"{env_var}={value}")
 
 if __name__ == "__main__":
-    yaml_file = sys.argv[1]
-    prefix = sys.argv[2] if len(sys.argv) > 2 else 'YAML_'
+    yaml_file = os.getenv('INPUT_YAML_FILE')
+    prefix = os.getenv('INPUT_PREFIX', 'YAML_')
+    
+    if not yaml_file:
+        raise ValueError("O caminho para o arquivo YAML não foi fornecido.")
+
     extract_variables(yaml_file, prefix)
