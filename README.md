@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Extract variables from YAML
-        uses: your-username/your-repo@v1.0
+        uses: fean-developer/github-action-python@latest
         with:
           yaml_file: './path/to/file.yaml'
           prefix: 'YAM_'
