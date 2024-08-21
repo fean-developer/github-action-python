@@ -5,16 +5,8 @@ author: 'Francisco Nascimento'
 runs:
   using: 'composite'
   steps:
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-
-    - name: Install PyYAML
-      run: pip install pyyaml
-
     - name: Run YAML extractor script
-      run: python action.py ${{ inputs.yaml_file }} ${{ inputs.prefix }}
+      run: python3 action.py ${{ inputs.yaml_file }} ${{ inputs.prefix }}
       shell: bash
 
 inputs:
