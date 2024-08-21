@@ -26,3 +26,6 @@ jobs:
         with:
           yaml_file: './path/to/file.yaml'
           prefix: 'YAM_'
+```
+
+### API Specification
